@@ -1,0 +1,73 @@
+<html ng-app="myApp">
+<head>
+	<title>Welcome!!!!!</title>
+	<!-- <script src="app/lib/angular.min.js"></script> -->
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+	<script src="app/lib/angular-ui-route.js"></script>
+	<script src="app/js/app.js"></script>
+	<script src="app/js/config/config-router.js"></script>
+	<script src="app/js/controllers/index-controller.js"></script>
+	<script src="app/js/controllers/issue-book-controller.js"></script>
+	<script src="app/js/controllers/return-book-controller.js"></script>
+	<script src="app/js/controllers/add-members-controller.js"></script>
+	<script src="app/js/controllers/add-book-controller.js"></script>
+	<script src="app/js/directives/common-directives.js"></script>
+	<script src="app/js/factories/app-factory.js"></script>
+	<script src="app/js/factories/util-factory.js"></script>
+	<script src="app/js/filters/common-filters.js"></script>
+	<!--Bootstrap css-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+
+	<style>
+	.select:hover {
+		height: 165px;
+		width: 285px;
+		padding:0px;
+		box-shadow: 0px 0px 15px 5px #00BFFF;
+	}
+	.select{
+		height: 150px;
+		width: 260px;
+		border-radius: 10%;
+		padding-left:13px;
+		padding-top:8px;
+	}
+	</style>
+</head>
+<body ng-controller="indexController">
+	<div>
+		<div name="header" style="height: 15%;width: 100%;background-color: aqua;">
+			<h1 style="text-align: center;">Library Manager</h1>
+		</div>
+		<div name="body" style="width: 100%">
+			<div name="navigation1" style="height:100%;width: 20%;float: left;background-color: aquamarine">
+				<ul style="list-style-type:none">
+					<li><a class="btn btn-link btn-lg" ui-sref="home"><h3>Home</h3></a></li>
+				</ul>
+				<ul style="list-style-type:none">
+					<li><h3>Members</h3></li>
+					<li><a class="btn btn-link" ui-sref="addMembers">Add Member</a></li>
+					<li><a class="btn btn-link" href="">Members Details</a></li>
+				</ul>
+				<ul style="list-style-type:none">
+					<li><h3>Books</h3></li>
+					<li><a class="btn btn-link" ui-sref="addBooks">Add Book</a></li>
+					<li><a class="btn btn-link" href="">All Books Details</a></li>
+				</ul>
+				<ul style="list-style-type:none">
+					<li><h3>Admin</h3></li>
+					<li><a class="btn btn-link" href="">Add New User</a></li>
+					<li><a class="btn btn-link" href="">Monthly Report</a></li>
+				</ul>
+			</div>
+			<div name="navigation2" style="width: 78%; float: left;padding-left: 2%;">
+				<div ui-view></div>
+			</div>
+		</div>
+<!--		<div name="footer" style="height:10%;width: 100%;background-color: lightblue;padding:1px;float: left">
+			<h1 style="text-align: right;padding-right: 2%"><b>&copy</b><i>CopyRights Reserved</i></h1>
+		</div>-->
+	</div>
+</body>
+</html>

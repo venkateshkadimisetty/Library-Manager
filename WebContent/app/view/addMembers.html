@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>New Member Registration!!!!!</title>
+</head>
+<body>
+<h1 style="padding-left: 60px;">New Student Registration</h1>
+	<form ng-submit="addMember()" style="padding-left: 50px;padding-top: 50px;">
+		<div ng-hide="memDetails.sId=='0' || model.sid==''">
+			<span class="w3-input w3-pale-red w3-leftbar w3-border-red">
+  					<span>Member already exists with the given ID no</span>
+			</span>
+		</div>
+		<div>
+			<div class="row">
+				<div class="col-md-2">
+					Full Name:
+				</div>
+				<div class="col-md-4">
+					<input type="text" name="sname" capitalize-first ng-model="model.fname" class="w3-pale-blue w3-leftbar w3-border-blue w3-input" required="required" placeholder="Enter full name here"/>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-2">
+					ID NO:
+				</div>
+				<div class="col-md-4">
+					<input type="text" name="sid" numbers-only ng-model="model.sid" class="w3-pale-blue w3-leftbar w3-border-blue w3-input" required="required" ng-blur="getMemberDetails()" placeholder="Enter the Student ID"/>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-2">
+					Contact No:
+				</div>
+				<div class="col-md-4">
+					<input type="text" name="smobile" numbers-only ng-model="model.mobile" class="w3-pale-blue w3-leftbar w3-border-blue w3-input" required="required" placeholder="Enter 10 digits Contact number"/>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-2">
+					Email-Id:
+				</div>
+				<div class="col-md-4">
+					<input type="text" name="email" ng-model="model.email" class="w3-pale-blue w3-leftbar w3-border-blue w3-input" required="required" placeholder="Enter valid E-mail ID"/>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-2">
+					Date of Issue:
+				</div>
+				<div class="col-md-4">
+					<input type="date" name="sdate" ng-model="model.issueDate" class="w3-pale-blue w3-leftbar w3-border-blue w3-input" required="required"/>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6" style="padding-top: 20px;">
+					<span><input class="w3-btn w3-white w3-border w3-border-red w3-round-large" type="button" value="Reset" ng-click="reset();"/></span>
+					<span style="padding-left: 40%;"><input class="w3-btn w3-white w3-border w3-border-green w3-round-large" type="submit" value="Register Member"/></span>
+				</div>
+			</div>
+		</div>
+	</form>
+</body>
+</html>

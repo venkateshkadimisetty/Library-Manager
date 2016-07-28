@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Book Return</title>
+</head>
+<body>
+	<h1 style="padding-left: 60px;">Details to return Book!!!</h1>
+	<form ng-submit="submit()" style="padding-left: 50px;padding-top: 50px;">
+		<div>
+			<div>
+				<div>
+					Book ID:
+				</div>
+				<div>
+					<input type="text" name="bookId" numbers-only ng-model="model.bookId" class="w3-pale-blue w3-leftbar w3-border-blue w3-input" style="width: 50%" onBlur="getDetails();" placeholder="Enter BookID"/>
+					<span ng-show="bookData.bName" class="w3-container w3-pale-green w3-leftbar w3-border-green">
+  							<span>Book Name:{{bookData.bName}}  Author:{{bookData.authorName}}</span>
+						</span>
+						<span ng-show="!bookData.bName && model.bookId!=''" class="w3-input w3-pale-red w3-leftbar w3-border-red">
+  							<span>No Record Found!!!</span>
+					</span>
+				</div>
+			</div>
+			
+			<div>
+				<div>
+					Member ID:
+				</div>
+				<div>
+					<input type="text" name="memId" ng-model="model.memId" class="w3-pale-blue w3-leftbar w3-border-blue w3-input" style="width: 50%" readonly="readonly"/>
+					<span ng-show="memData.sName && bookData.bName" class="w3-input w3-pale-green w3-leftbar w3-border-green">
+  							<span>Member Name:{{memData.sName}}</span>
+					</span>
+					<!-- <span ng-show="!memData.sName && memId!=''" class="w3-container w3-pale-red w3-leftbar w3-border-red">
+  							<span>No Member Exists!!!</span>
+					</span> -->
+				</div>
+			</div>
+
+			<div>
+				<div>
+					Date of Issue:
+				</div>
+				<div>
+					<input type="date" name="issueDate" ng-model="model.issueDate" class="w3-pale-blue w3-leftbar w3-border-blue w3-input" style="width: 50%"  readonly="readonly"/>
+				</div>
+			</div>
+
+			<div>
+				<div>
+					Due Date:
+				</div>
+				<div>
+					<input type="date" name="dueDate" ng-model="model.dueDate" class="w3-pale-blue w3-leftbar w3-border-blue w3-input" style="width: 50%"  readonly="readonly"/>
+				</div>
+			</div>
+			<div>
+				<div>
+					Date of Submission:
+				</div>
+				<div>
+					<input type="date" name="submissionDate" ng-model="model.submissionDate" class="w3-pale-blue w3-leftbar w3-border-blue w3-input" style="width: 50%"  readonly="readonly"/>
+				</div>
+			</div>
+			<div>
+				<div>
+					Fine:
+				</div>
+				<div>
+					<input type="number" ng-model="model.fine" class="w3-pale-blue w3-leftbar w3-border-blue w3-input" style="width: 50%" readonly="readonly"/>
+				</div>
+			</div>
+			<div>
+				<div style="padding-top: 20px;">
+					<span></span><input class="w3-btn w3-white w3-border w3-border-red w3-round-large" type="button" value="Reset" ng-click="reset();"/></span>
+					<span style="padding-left: 30%;"><input class="w3-btn w3-white w3-border w3-border-green w3-round-large" type="submit" value="Return Book"/></span>
+				</div>
+			</div>
+		</div>
+	</form>
+</body>
+</html>

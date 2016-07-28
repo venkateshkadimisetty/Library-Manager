@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>New Books!!!!!</title>
+</head>
+<body>
+<h1 style="padding-left: 60px;">New Book Registration</h1>
+	<form ng-submit="addBook()" style="padding-left: 50px;padding-top: 50px;">
+	<div ng-hide="bookDetails.bId=='0' || model.bid=='' || model.bid==undefined">
+			<span class="w3-input w3-pale-red w3-leftbar w3-border-red">
+  					<span>Book already exists with the given ID no</span>
+			</span>
+		</div>
+		<div>
+			<div>
+				<div>
+					Book Name:
+				</div>
+				<div>
+					<input type="text" name="bname" capitalize-first ng-model="model.bname" class="w3-pale-blue w3-leftbar w3-border-blue w3-input" style="width: 50%" required="required" placeholder="Enter the book name"/>
+				</div>
+			</div>
+			<div>
+				<div>
+					Book ID:
+				</div>
+				<div>
+					<input type="text" name="bid" ng-model="model.bid" numbers-only class="w3-pale-blue w3-leftbar w3-border-blue w3-input" ng-blur="getBookDetails()" style="width: 50%" required="required" placeholder="Enter the book ID"/>
+				</div>
+			</div>
+			<div>
+				<div>
+					Author:
+				</div>
+				<div>
+					<input type="text" name="bauthor" capitalize-first ng-model="model.bauthor" class="w3-pale-blue w3-leftbar w3-border-blue w3-input" style="width: 50%" required="required" placeholder="Enter the book author"/>
+				</div>
+			</div>
+
+			<div>
+				<div>
+					Date of Availability:
+				</div>
+				<div>
+					<input type="date" name="bdate" ng-model="model.bdate" class="w3-pale-blue w3-leftbar w3-border-blue w3-input" style="width: 50%" required="required"/>
+				</div>
+			</div>
+			<div>
+				<div style="padding-top: 20px;">
+					<span><input class="w3-btn w3-white w3-border w3-border-red w3-round-large" type="button" value="Reset"/></span>
+					<span style="padding-left: 29%;"><input class="w3-btn w3-white w3-border w3-border-green w3-round-large" type="submit" value="Register Book"/></span>
+				</div>
+			</div>
+		</div>
+	</form>
+</body>
+</html>

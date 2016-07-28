@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Book Issue</title>
+</head>
+<body>
+	<h1 style="padding-left: 60px;">Details for book issue!!!</h1>
+	<form name="frm" ng-submit="sendPost()" style="padding-left: 50px;padding-top: 50px;">
+	<div ng-show="formValid==false">
+		<span class="w3-input w3-pale-red w3-leftbar w3-border-red">
+  				<span>Please provide valid Details!!!</span>
+		</span>
+	</div>
+		<div>
+			<!-- <div>
+				<div>
+					name:
+				</div>
+				<div>
+					<div style="width: 50%;float:left;">
+						<input class="w3-pale-blue w3-border-blue w3-input" type="text"/>
+					</div>
+					<div style="width: 50%;float:left;">
+						<span class="w3-pale-green w3-leftbar w3-border-green w3-input">This is something</span>
+					</div>
+				</div>
+			</div> -->
+			<div style="width: 100%;float:left;">
+				<div>
+					<div style="width: 50%;float:left;">
+					<span ng-show="memData.noOfBooks >= '3'" class="w3-input w3-pale-red w3-leftbar w3-border-red">
+  							<span>You have reached Book Limit(3)</span>
+					</span>
+					<span ng-show="memData.totalFine >= '500'" class="w3-input w3-pale-red w3-leftbar w3-border-red">
+  							<span>You have reached Maximum Fine Limit(500)</span>
+					</span>
+					</div>
+				</div>
+			</div>
+			<div style="width: 100%;float:left;">
+				<div>
+					Member ID:
+				</div>
+				<div>
+					<div style="width: 50%;float:left;">
+					<input type="text" class="w3-pale-blue w3-border-blue w3-leftbar w3-input" numbers-only style="width: 50%" ng-model="model.memId" name="sid"
+						   placeholder="Enter the Member ID" required="required" onBlur="getMemberDetails();"/>
+					</div>
+					<div style="width: 25%;float:left;">
+					<span ng-show="memData.sName" class="w3-input w3-pale-green w3-leftbar w3-border-green">
+  							<span>Member Name:{{memData.sName}}</span>
+					</span>
+					<span ng-show="!memData.sName && model.memId!=''" class="w3-input w3-pale-red w3-leftbar w3-border-red">
+  							<span>No Member Exists!!!</span>
+					</span>
+					</div>
+				</div>
+			</div>
+			<div style="width: 100%;float:left;">
+				<div>
+					<div style="width: 50%;float:left;">
+					<span ng-show="!bookDetails.bId=='0'" class="w3-input w3-pale-red w3-leftbar w3-border-red">
+  							<span>Book is not available</span>
+					</span>
+					</div>
+				</div>
+			</div>
+			<div style="width: 100%;float:left;">
+				<div>
+					Book ID:
+				</div>
+				<div>
+					<div  style="width: 50%;float:left;">
+						<input type="text" class="w3-pale-blue w3-leftbar w3-border-blue w3-input" numbers-only style="width: 50%" ng-model="model.bookId" name="bid"
+						   placeholder="Enter the Book ID" required="required" onBlur="getBookDetails();"/>
+					</div>
+					<div style="width: 25%;float:left;">
+						<span ng-show="bookData.bName" class="w3-input w3-pale-green w3-leftbar w3-border-green">
+  							<span>Book Name:{{bookData.bName}}  Author:{{bookData.authorName}}</span>
+						</span>
+						<span ng-show="!bookData.bName && model.bookId!=''" class="w3-input w3-pale-red w3-leftbar w3-border-red">
+  							<span>No Book Exists!!!</span>
+						</span>
+					</div>
+				</div>
+			</div>
+			<div style="width: 100%;float:left;">
+				<div>
+					Date of Issue:
+				</div>
+				<div style="width:100%">
+					<input type="date" class="w3-pale-blue w3-leftbar w3-border-blue w3-input" style="width: 25%" name="issueDate" id="issueDate" ng-model="model.issueDate" readonly="readonly"/>
+				</div>
+			</div>
+			<div>
+				<div>
+					Due Date:
+				</div>
+				<div>
+					<input type="date" class="w3-pale-blue w3-leftbar w3-border-blue w3-input" style="width: 25%" name="dueDate" id="dueDate" ng-model="model.dueDate" readonly="readonly"/>
+				</div>
+			</div>
+			<div>
+				<div style="padding-top: 20px;">
+					<span></span><input class="w3-btn w3-white w3-border w3-border-red w3-round-large" type="button" value="Reset" ng-click="reset();"/></span>
+					<span style="padding-left: 30%;"><input class="w3-btn w3-white w3-border w3-border-green w3-round-large" type="submit" value="Issue Book"/></span>
+				</div>
+			</div>
+		</div>
+	</form>
+</body>
+</html>
