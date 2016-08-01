@@ -1,7 +1,5 @@
 package libManager.bean;
 
-import java.util.Date;
-
 public class ReturnBookBean {
 	public int sId;
 	public int bId;

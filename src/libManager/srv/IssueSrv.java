@@ -14,6 +14,11 @@ import libManager.dao.IssueDAO;
 import org.json.JSONObject;
 
 public class IssueSrv extends HttpServlet {
+/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 @Override
 protected void doPost(HttpServletRequest req, HttpServletResponse res)
 		throws ServletException, IOException {
