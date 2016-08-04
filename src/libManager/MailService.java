@@ -8,11 +8,11 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-import libManager.bean.AddMemberBean;
+import libManager.bean.MemberBean;
 
 public class MailService {
 	
-	public void sendMail(AddMemberBean amb)throws Exception{
+	public void sendMail(MemberBean mb)throws Exception{
 
 	Properties mailServerProperties = System.getProperties();
 	mailServerProperties.put("mail.smtp.port", "587");
@@ -22,9 +22,9 @@ public class MailService {
 	// Step2 getting mail
 	Session getMailSession = Session.getDefaultInstance(mailServerProperties, null);
 	MimeMessage generateMailMessage = new MimeMessage(getMailSession);
-	generateMailMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(amb.emaiId));
+	generateMailMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(mb.getEmailId()));
 	generateMailMessage.setSubject("Library Membership Confirmation..");
-	String emailBody = "Hai "+amb.sName+",<br><p>You have successfully registered for the Library Membership.</p><br>--<br><br>Thanks & Regards,<br>ADMIN<br>Library Manager.";
+	String emailBody = "Hai "+mb.getsName()+",<br><p>You have successfully registered for the Library Membership.</p><br>--<br><br>Thanks & Regards,<br>ADMIN<br>Library Manager.";
 	generateMailMessage.setContent(emailBody, "text/html");
 
 	// Step3

@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import libManager.bean.IssueBookBean;
+import libManager.factory.DateFactory;
 
 public class IssueDAO {
 	Connection con;
@@ -25,11 +26,11 @@ public class IssueDAO {
 			  
 			}
 	public int insertDB(IssueBookBean ibb){
-		String query="INSERT INTO `test`.`book_lends` (`s_id`, `b_id`, `issue_date`, `due_date`) VALUES ('"+ibb.memId+"', '"+ibb.bookId+"', '"+ibb.issueDate+"', '"+ibb.dueDate+"')";
+		String query="INSERT INTO `test`.`book_lends` (`s_id`, `b_id`, `issue_date`, `due_date`) VALUES ('"+ibb.getMemId()+"', '"+ibb.getBookId()+"', '"+DateFactory.utilToSqlDate(ibb.getIssueDate())+"', '"+DateFactory.utilToSqlDate(ibb.getDueDate())+"')";
 		int res=0;
 		try {
 			res=stmt.executeUpdate(query);
-			stmt.executeUpdate("UPDATE `test`.`members` SET `no_of_books`=`no_of_books`+'1' WHERE `s_id`='"+ibb.memId+"'");
+			stmt.executeUpdate("UPDATE `test`.`members` SET `no_of_books`=`no_of_books`+'1' WHERE `s_id`='"+ibb.getMemId()+"'");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

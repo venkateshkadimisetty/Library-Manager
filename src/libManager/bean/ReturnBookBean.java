@@ -1,11 +1,13 @@
 package libManager.bean;
 
+import java.util.Date;
+
 public class ReturnBookBean {
 	public int sId;
 	public int bId;
-	public String issueDate;
-	public String dueDate;
-	public String subDate;
+	public Date issueDate;
+	public Date dueDate;
+	public Date subDate;
 	public int fine;
 	public int getsId() {
 		return sId;
@@ -19,22 +21,22 @@ public class ReturnBookBean {
 	public void setbId(int bId) {
 		this.bId = bId;
 	}
-	public String getIssueDate() {
+	public Date getIssueDate() {
 		return issueDate;
 	}
-	public void setIssueDate(String issueDate) {
+	public void setIssueDate(Date issueDate) {
 		this.issueDate = issueDate;
 	}
-	public String getDueDate() {
+	public Date getDueDate() {
 		return dueDate;
 	}
-	public void setDueDate(String dueDate) {
+	public void setDueDate(Date dueDate) {
 		this.dueDate = dueDate;
 	}
-	public String getSubDate() {
+	public Date getSubDate() {
 		return subDate;
 	}
-	public void setSubDate(String subDate) {
+	public void setSubDate(Date subDate) {
 		this.subDate = subDate;
 	}
 	public int getFine() {
@@ -43,6 +45,7 @@ public class ReturnBookBean {
 	public void setFine(int fine) {
 		this.fine = fine;
 	}
+
 	
 
 

@@ -13,6 +13,7 @@ import org.json.JSONObject;
 
 import libManager.bean.ReturnBookBean;
 import libManager.dao.ReturnBookDAO;
+import libManager.factory.DateFactory;
 
 import com.google.gson.Gson;
 
@@ -55,9 +56,9 @@ public class ReturnBookSrv extends HttpServlet {
 	    ReturnBookBean rbb=new ReturnBookBean();
 	    rbb.setsId(model.getInt("memId"));
 	    rbb.setbId(Integer.parseInt(model.getString("bookId")));
-	    rbb.setSubDate(model.getString("submissionDate").substring(0, 10));
-	    rbb.setIssueDate(model.getString("issueDate").substring(0, 10));
-	    rbb.setDueDate(model.getString("dueDate").substring(0, 10));
+	    rbb.setSubDate(DateFactory.stringToUtilDate(model.getString("submissionDate")));
+	    rbb.setIssueDate(DateFactory.stringToUtilDate(model.getString("issueDate")));
+	    rbb.setDueDate(DateFactory.stringToUtilDate(model.getString("dueDate")));
 	    rbb.setFine(model.getInt("fine"));
 	    ReturnBookDAO rbd=new ReturnBookDAO();
 		int res=rbd.deleteBookLendDetails(rbb);

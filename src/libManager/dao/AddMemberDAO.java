@@ -6,7 +6,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import libManager.MailService;
-import libManager.bean.AddMemberBean;
+import libManager.bean.MemberBean;
+import libManager.factory.DateFactory;
 
 public class AddMemberDAO {
 	Connection con;
@@ -26,8 +27,8 @@ public class AddMemberDAO {
 			  
 			}
 	
-	public void addMember(AddMemberBean amb){
-		String query="INSERT INTO `test`.`members` (`s_id`, `s_name`, `books_limit`, `no_of_books`, `total_fine`, `issue_date`, `mobile_no`, `email_id`) VALUES ('"+amb.sId+"', '"+amb.sName+"', '"+amb.bookLimit+"', '"+amb.noBooks+"', '"+amb.fine+"', '"+amb.issueDate+"', '"+amb.mobileNo+"', '"+amb.emaiId+"')";
+	public void addMember(MemberBean mb){
+		String query="INSERT INTO `test`.`members` (`s_id`, `s_name`, `books_limit`, `no_of_books`, `total_fine`, `issue_date`, `mobile_no`, `email_id`) VALUES ('"+mb.getsId()+"', '"+mb.getsName()+"', '"+mb.getBooksLimit()+"', '"+mb.getNoOfBooks()+"', '"+mb.getTotalFine()+"', '"+DateFactory.utilToSqlDate(mb.getIssueDate())+"', '"+mb.getMobileNo()+"', '"+mb.getEmailId()+"')";
 		int res=0;
 		try {
 			res=stmt.executeUpdate(query);
@@ -38,7 +39,7 @@ public class AddMemberDAO {
 		if(res==1){
 			MailService ms=new MailService();
 			try {
-				ms.sendMail(amb);
+				ms.sendMail(mb);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

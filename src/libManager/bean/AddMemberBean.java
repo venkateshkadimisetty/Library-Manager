@@ -9,6 +9,7 @@ public class AddMemberBean {
 	public String fine;
 	public String emaiId;
 	public String issueDate;
+	
 	public String getIssueDate() {
 		return issueDate;
 	}

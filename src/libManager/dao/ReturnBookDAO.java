@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import libManager.bean.ReturnBookBean;
+import libManager.factory.DateFactory;
 
 public class ReturnBookDAO {
 	Connection con;
@@ -32,8 +33,8 @@ public class ReturnBookDAO {
 			while(rs.next())  {
 				rbb.sId=rs.getInt(1);
 				rbb.bId=rs.getInt(2);
-				rbb.issueDate=rs.getString(3);
-				rbb.dueDate=rs.getString(4);
+				rbb.issueDate=rs.getDate(3);
+				rbb.dueDate=rs.getDate(4);
 			}
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -44,10 +45,10 @@ public class ReturnBookDAO {
 	public int deleteBookLendDetails(ReturnBookBean rbb){
 		int res=0;
 		try{
-			res=stmt.executeUpdate("DELETE FROM `test`.`book_lends` WHERE `b_id`='"+rbb.bId+"'");
-			stmt.executeUpdate("UPDATE `test`.`members` SET `total_fine`=`total_fine`+'"+rbb.fine+"' WHERE `s_id`='"+rbb.sId+"'");
-			stmt.executeUpdate("UPDATE `test`.`members` SET `no_of_books`=`no_of_books`-'1' WHERE `s_id`='"+rbb.sId+"'");
-			stmt.executeUpdate("insert into test.book_len_log values('"+rbb.sId+"','"+rbb.bId+"','"+rbb.issueDate+"','"+rbb.dueDate+"','"+rbb.subDate+"','"+rbb.fine+"')");
+			res=stmt.executeUpdate("DELETE FROM `test`.`book_lends` WHERE `b_id`='"+rbb.getbId()+"'");
+			stmt.executeUpdate("UPDATE `test`.`members` SET `total_fine`=`total_fine`+'"+rbb.getFine()+"' WHERE `s_id`='"+rbb.getsId()+"'");
+			stmt.executeUpdate("UPDATE `test`.`members` SET `no_of_books`=`no_of_books`-'1' WHERE `s_id`='"+rbb.getsId()+"'");
+			stmt.executeUpdate("insert into test.book_len_log values('"+rbb.getsId()+"','"+rbb.getbId()+"','"+DateFactory.utilToSqlDate(rbb.getIssueDate())+"','"+DateFactory.utilToSqlDate(rbb.getDueDate())+"','"+DateFactory.utilToSqlDate(rbb.getSubDate())+"','"+rbb.getFine()+"')");
 		}
 		catch(Exception e){
 			e.printStackTrace();
