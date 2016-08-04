@@ -5,7 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import libManager.bean.AddBookBean;
+import libManager.bean.BookBean;
+import libManager.factory.DateFactory;
 
 public class AddBookDAO {
 	Connection con;
@@ -24,8 +25,8 @@ public class AddBookDAO {
 				}  
 			  
 			}
-	public void addBook(AddBookBean abb){
-		String query="INSERT INTO `test`.`books` (`b_id`, `b_name`, `author_name`, `aval_date`) VALUES ('"+abb.bId+"', '"+abb.bName+"', '"+abb.bAuthor+"', '"+abb.bDate+"')";
+	public void addBook(BookBean bb){
+		String query="INSERT INTO `test`.`books` (`b_id`, `b_name`, `author_name`, `aval_date`) VALUES ('"+bb.getbId()+"', '"+bb.getbName()+"', '"+bb.getAuthorName()+"', '"+DateFactory.utilToSqlDate(bb.getAvalDate())+"')";
 		try {
 			stmt.executeUpdate(query);
 		} catch (SQLException e) {

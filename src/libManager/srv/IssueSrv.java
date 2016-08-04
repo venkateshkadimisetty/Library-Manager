@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import libManager.bean.IssueBookBean;
 import libManager.dao.IssueDAO;
+import libManager.factory.DateFactory;
 
 import org.json.JSONObject;
 
@@ -36,10 +37,10 @@ protected void doPost(HttpServletRequest req, HttpServletResponse res)
     JSONObject model=jobj.getJSONObject("mod");
     
     IssueBookBean ibb=new IssueBookBean();
-    ibb.setMemId(model.getString("memId"));
-    ibb.setBookId(model.getString("bookId"));
-    ibb.setIssueDate(model.getString("issueDate").substring(0, 10));
-    ibb.setDueDate(model.getString("dueDate").substring(0, 10));
+    ibb.setMemId(Integer.parseInt(model.getString("memId")));
+    ibb.setBookId(Integer.parseInt(model.getString("bookId")));
+    ibb.setIssueDate(DateFactory.stringToUtilDate(model.getString("issueDate")));
+    ibb.setDueDate(DateFactory.stringToUtilDate(model.getString("dueDate")));
     IssueDAO id=new IssueDAO();
     int result=id.insertDB(ibb);
     

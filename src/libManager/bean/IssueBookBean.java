@@ -1,34 +1,38 @@
 package libManager.bean;
 
+import java.util.Date;
+
 
 public class IssueBookBean {
-	public String memId;
-	public String bookId;
-	public String issueDate;
-	public String dueDate;
-	public String getMemId() {
+	public int memId;
+	public int bookId;
+	public Date issueDate;
+	public Date dueDate;
+	public int getMemId() {
 		return memId;
 	}
-	public void setMemId(String memId) {
+	public void setMemId(int memId) {
 		this.memId = memId;
 	}
-	public String getBookId() {
+	public int getBookId() {
 		return bookId;
 	}
-	public void setBookId(String bookId) {
+	public void setBookId(int bookId) {
 		this.bookId = bookId;
 	}
-	public String getIssueDate() {
+	public Date getIssueDate() {
 		return issueDate;
 	}
-	public void setIssueDate(String issueDate) {
+	public void setIssueDate(Date issueDate) {
 		this.issueDate = issueDate;
 	}
-	public String getDueDate() {
+	public Date getDueDate() {
 		return dueDate;
 	}
-	public void setDueDate(String dueDate) {
+	public void setDueDate(Date dueDate) {
 		this.dueDate = dueDate;
 	}
+	
+	
 	
 }
