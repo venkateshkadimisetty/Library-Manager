@@ -4,10 +4,10 @@ import java.util.Date;
 
 
 public class IssueBookBean {
-	public int memId;
-	public int bookId;
-	public Date issueDate;
-	public Date dueDate;
+	private int memId;
+	private int bookId;
+	private Date issueDate;
+	private Date dueDate;
 	public int getMemId() {
 		return memId;
 	}

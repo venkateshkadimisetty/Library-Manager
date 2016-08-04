@@ -3,12 +3,12 @@ package libManager.bean;
 import java.util.Date;
 
 public class ReturnBookBean {
-	public int sId;
-	public int bId;
-	public Date issueDate;
-	public Date dueDate;
-	public Date subDate;
-	public int fine;
+	private int sId;
+	private int bId;
+	private Date issueDate;
+	private Date dueDate;
+	private Date subDate;
+	private int fine;
 	public int getsId() {
 		return sId;
 	}

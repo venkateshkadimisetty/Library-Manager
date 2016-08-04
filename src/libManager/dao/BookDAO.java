@@ -30,11 +30,11 @@ public  class BookDAO {
 			rs=stmt.executeQuery("select * from books where b_id="+b_id);
 			ibb=new BookBean();
 			while(rs.next())  {
-				ibb.bId=rs.getInt(1);
-				ibb.bName=rs.getString(2);
-				ibb.authorName=rs.getString(3);
-				ibb.avalDate=rs.getDate(4);
-				System.out.println(ibb.bId+"  "+ibb.bName+"  "+ibb.authorName+" "+ibb.avalDate);
+				ibb.setbId(rs.getInt(1));
+				ibb.setbName(rs.getString(2));
+				ibb.setAuthorName(rs.getString(3));
+				ibb.setAvalDate(rs.getDate(4));
+				System.out.println(ibb.getbId()+"  "+ibb.getbName()+"  "+ibb.getAuthorName()+" "+ibb.getAvalDate());
 			}
 			} catch (SQLException e) {
 				e.printStackTrace();

@@ -3,10 +3,10 @@ package libManager.bean;
 import java.util.Date;
 
 public class BookBean {
-public int bId;
-public String bName;
-public String authorName;
-public Date avalDate;
+private int bId;
+private String bName;
+private String authorName;
+private Date avalDate;
 
 public int getbId() {
 	return bId;
