@@ -31,10 +31,10 @@ public class ReturnBookDAO {
 			rs=stmt.executeQuery("select * from book_lends where b_id="+b_id);
 			rbb=new ReturnBookBean();
 			while(rs.next())  {
-				rbb.sId=rs.getInt(1);
-				rbb.bId=rs.getInt(2);
-				rbb.issueDate=rs.getDate(3);
-				rbb.dueDate=rs.getDate(4);
+				rbb.setsId(rs.getInt(1));
+				rbb.setbId(rs.getInt(2));
+				rbb.setIssueDate(rs.getDate(3));
+				rbb.setDueDate(rs.getDate(4));
 			}
 			} catch (SQLException e) {
 				e.printStackTrace();

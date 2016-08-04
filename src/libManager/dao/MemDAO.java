@@ -29,14 +29,14 @@ public class MemDAO {
 			rs=stmt.executeQuery("select * from members where s_id="+mem_id);
 			mb=new MemberBean();
 			while(rs.next())  {
-				mb.sId=rs.getInt(1);
-				mb.sName=rs.getString(2);
-				mb.booksLimit=rs.getInt(3);
-				mb.noOfBooks=rs.getInt(4);
-				mb.totalFine=rs.getInt(5);
-				mb.issueDate=rs.getDate(6);
-				mb.mobileNo=rs.getString(7);
-				mb.emailId=rs.getString(8);
+				mb.setsId(rs.getInt(1));
+				mb.setsName(rs.getString(2));
+				mb.setBooksLimit(rs.getInt(3));
+				mb.setNoOfBooks(rs.getInt(4));
+				mb.setTotalFine(rs.getInt(5));
+				mb.setIssueDate(rs.getDate(6));
+				mb.setMobileNo(rs.getString(7));
+				mb.setEmailId(rs.getString(8));
 			}
 			} catch (SQLException e) {
 				e.printStackTrace();

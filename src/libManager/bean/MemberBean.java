@@ -3,14 +3,14 @@ package libManager.bean;
 import java.util.Date;
 
 public class MemberBean {
-	public int sId;
-	public String sName;
-	public int booksLimit;
-	public int noOfBooks;
-	public int totalFine;
-	public Date issueDate;
-	public String mobileNo;
-	public String emailId;
+	private int sId;
+	private String sName;
+	private int booksLimit;
+	private int noOfBooks;
+	private int totalFine;
+	private Date issueDate;
+	private String mobileNo;
+	private String emailId;
 	
 	public int getsId() {
 		return sId;

@@ -4,10 +4,10 @@ import java.util.Date;
 
 public class AddBookBean {
 	
-	public String bName;
-	public int bId;
-	public String bAuthor;
-	public Date bDate;
+	private String bName;
+	private int bId;
+	private String bAuthor;
+	private Date bDate;
 	public String getbName() {
 		return bName;
 	}

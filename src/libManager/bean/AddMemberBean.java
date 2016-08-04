@@ -1,14 +1,14 @@
 package libManager.bean;
 
 public class AddMemberBean {
-	public String sId;
-	public String sName;
-	public String bookLimit;
-	public String noBooks;
-	public String mobileNo;
-	public String fine;
-	public String emaiId;
-	public String issueDate;
+	private String sId;
+	private String sName;
+	private String bookLimit;
+	private String noBooks;
+	private String mobileNo;
+	private String fine;
+	private String emaiId;
+	private String issueDate;
 	
 	public String getIssueDate() {
 		return issueDate;
